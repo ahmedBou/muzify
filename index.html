@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/login.css">
+    <title>Muzify - Listen Free and be FREE!</title>
+</head>
+
+<body>
+    <video class="video" muted autoplay loop>
+        <source src="assets/images/party.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <h1 id="main_title">Enjoy The Latest Songs</h1>
+        <div class="panel">
+            <div class="labels">
+                <button class="active-panel">Sign In</button>
+                <button>Sign Up</button>
+            </div>
+            <div class="forms">
+                <div id="sign_in" class="active-form form">
+                    <form method="POST" action="">
+                        <div class="input-from">
+                            <label for="username_u">Username or Email:</label>
+                            <input type="text" name="username" id="username_u" placeholder="Your username">
+                        </div>
+                        <div class="input-from">
+                            <label for="password_u">Password:</label>
+                            <input type="password" name="password" id="password_u" placeholder="Your password">
+                        </div>
+                        <button class="submit-btn" type="submit" name="signin">Sign In</button>
+                    </form>
+                </div>
+                <!--div #sign_in-->
+
+                <div id="sign_up" class="form">
+                    <form method="POST" action="">
+                        <div class="input-from">
+                            <label for="username">Username:</label>
+                            <input type="text" name="username" id="username" placeholder="Your username">
+                        </div>
+                        <div class="input-from">
+                            <label for="firstname">Your First Name:</label>
+                            <input type="text" name="first_name" id="firstname" placeholder="Your fist name">
+                        </div>
+                        <div class="input-from">
+                            <label for="lastname">Your Last Name:</label>
+                            <input type="text" name="last_name" id="lastname" placeholder="Your last name">
+                        </div>
+                        <div class="input-from">
+                            <label for="email">Your Last Name:</label>
+                            <input type="email" name="email" id="email" placeholder="Enter your email">
+                        </div>
+                        <div class="input-from">
+                            <label for="password">Password:</label>
+                            <input type="password" name="password" id="password" placeholder="Enter a password">
+                        </div>
+                        <div class="input-from">
+                            <label for="re_password">Re enter the password:</label>
+                            <input type="password" name="re_password" id="re_password" placeholder="Re enter password">
+                        </div>
+                        <button class="submit-btn" type="submit" name="signup">Sign Up</button>
+                    </form>
+                </div>
+                <!--div #sign_up-->
+            </div>
+        </div>
+    </div>
+    <script src="assets/scripts/login.js"></script>
+</body>
+
+</html>

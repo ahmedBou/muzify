@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#main_title{
+    font-size: 4em;
+    height: 15%;
+    text-align: center;
+}
+.container .panel{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    max-width: 480px;
+    text-shadow: white 0 0 5px ;
+    font-size: 1.2em;
+}
+
+.container .panel .labels button{
+    border: 1px solid white;
+    border-bottom: none;
+    outline: none;
+    background-color: rgba(255, 235, 226, 0.459);
+    padding: 8px 15px;
+    cursor: pointer;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    color: white;
+    text-shadow: white 0 0 5px ;
+    font-size: 1.2em;
+}
+
+.container .panel .labels .active-panel{
+    background-color: rgba(255, 235, 226, 0.0);
+}
+
+.container .panel .forms{
+    background-color: rgba(255, 235, 226, 0.0);
+    border-radius: 15px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border: 1px solid white;
+    
+}
+.container .panel .forms .form{
+    display: none;
+}
+
+.container .panel .forms .active-form{
+    display: block;
+    transition: height 1s;
+}
+
+.container .panel .forms .input-from{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 10px;
+    align-items: center;
+}
+
+.container .panel .forms .input-from input{
+    padding: 10px;
+    outline: none;
+    border: none;
+    width: 50%;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1em;
+}
+
+.container .panel .forms .input-from input::placeholder{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1em;
+    color: white;
+}
+
+.container .panel .forms .submit-btn{
+    border: none;
+    outline: none;
+    color: white;
+    padding: 8px 0;
+    width: 50%;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid white;
+    font-size: 1.2em;
+    text-shadow: white 0 0 5px ;
+    display: block;
+    margin: 25px auto;
+}
+
+.container .panel .forms .submit-btn:hover{
+    border-color: lightgrey;
+    color: lightgray;
+}
+
+.video{
+    position: fixed;
+    z-index: -1;
+}
+
+@media (min-aspect-ratio: 16/9){
+    .video{
+        width: 100%;
+        height: auto;
+    }
+}
+@media (max-aspect-ratio: 16/9){
+    .video{
+        width: auto;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    #main_title{
+        font-size: 2.5em;
+    }
+    .container .panel .forms .input-from label{
+        display: none;
+    }
+    .container .panel .forms .input-from input{
+        width: 100%;
+    }
+}
