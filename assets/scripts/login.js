@@ -20,7 +20,7 @@ let texts = [
     "Enjoy The Latest Songs",
     "Save Your Favorite Playlists",
     "Share Music With Your Friends",
-    "And More and More...",
+    "And More...",
     "Sign Up NOW!"
 ];
 

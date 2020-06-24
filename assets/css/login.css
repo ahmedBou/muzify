@@ -6,7 +6,7 @@ body{
     font-family: 'Ubuntu', sans-serif;
 }
 .container{
-    width: 100%;
+    width: 98%;
     height: 100vh;
     color: white;
     display: flex;
@@ -15,7 +15,7 @@ body{
 }
 #main_title{
     font-size: 4em;
-    height: 15%;
+    min-height: 100px;
     text-align: center;
 }
 .container .panel{
@@ -27,22 +27,30 @@ body{
     font-size: 1.2em;
 }
 
+.container .panel .labels{
+    display: flex;
+    align-items: flex-end;
+}
+
 .container .panel .labels button{
     border: 1px solid white;
     border-bottom: none;
     outline: none;
     background-color: rgba(255, 235, 226, 0.459);
-    padding: 8px 15px;
+    padding: 7px 10px;
     cursor: pointer;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     color: white;
     text-shadow: white 0 0 5px ;
-    font-size: 1.2em;
+    font-size: 1em;
+    margin-right: 3px;
 }
 
 .container .panel .labels .active-panel{
     background-color: rgba(255, 235, 226, 0.0);
+    padding: 8px 15px;
+    font-size: 1.2em;
 }
 
 .container .panel .forms{
@@ -59,7 +67,6 @@ body{
 
 .container .panel .forms .active-form{
     display: block;
-    transition: height 1s;
 }
 
 .container .panel .forms .input-from{
