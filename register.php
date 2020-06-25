@@ -1,8 +1,9 @@
 <?php
+include("includes/config.php");
 include("includes/classes/Account.php");
 include("includes/classes/Constants.php");
 
-$account = new Account(); 
+$account = new Account($con); 
 include("includes/handlers/register-handler.php") ;
 include("includes/handlers/login-handler.php");
 
@@ -42,34 +43,34 @@ function getInputValue($name){
 
 
         <h1>create a free account</h1>
-        <form action="register.php" method="POST" id="loginForm">
+        <form action="register.php" method="POST" id="registerForm">
         <p>
-        <?php echo $account->getError( Constants::$userNameCharacters) ?>
+        <?php echo $account->getError( Constants::$usernameCharacters) ?>
 
             <label for="username">username</label>
-            <input id="username" type="text" name="username" value="<?php echo $_POST['username'];?>" placeholder="mickael jackson" required>
+            <input id="username" type="text" <?php getInputValue("username") ?> value="<?php echo $_POST['username'];?>" placeholder="mickael jackson" required>
         </p> 
 
         <p>
             <?php echo $account->getError(Constants::$firstNameCharacters) ?>
             <label for="firstName">first name</label>
-            <input id="firstName" type="text" name="firstname" value="<?php echo $_POST['firstname']?>" placeholder="mickael" required>
+            <input id="firstName" type="text" <?php getInputVAlue("firstName") ?> value="<?php echo $_POST['firstName']?>" placeholder="mickael" required>
         </p> 
               
         <p> 
-        <?php echo $account->getError( Constants::$lastNameCharacters) ?>
+        <?php echo $account->getError(Constants::$lastNameCharacters) ?>
             <label for="lastName">last name</label>
-            <input id="lastName" type="text" name="lastname" value="<?php echo $_POST['lastname']?>" placeholder="mickael jackson" required>
+            <input id="lastName" type="text" <?php getInputVAlue("lastName") ?> value="<?php echo $_POST['lastName']?>" placeholder="mickael jackson" required>
         </p>
         <p>
             <label for="email">email</label>
-            <input id="email" type="email" name="email" value="<?php echo $_POST['email']?>" placeholder="e.g ahmed@gmail.com" required>
+            <input id="email" type="email" <?php getInputVAlue("email" ) ?> value="<?php echo $_POST['email']?>" placeholder="e.g ahmed@gmail.com" required>
         </p>
         <p>
-            <?php echo $account->getError(Constants::$emailDoNotMatch) ?>
+            <?php echo $account->getError(Constants::$emailsDoNotMatch) ?>
             <?php echo $account->getError(Constants::$emailInvalid) ?>
             <label for="email2">confirm email</label>
-            <input id="email2" type="email" name="email2" value="<?php echo $_POST['email2'] ?>" placeholder="e.g ahmed@gmail.com" required>
+            <input id="email2" type="email" <?php getInputVAlue("email2") ?> value="<?php echo $_POST['email2'] ?>" placeholder="e.g ahmed@gmail.com" required>
         </p>
 
         <p>          
@@ -77,12 +78,11 @@ function getInputValue($name){
             <?php echo $account->getError(Constants::$passwordNotAlphanumeric); ?>
             <?php echo $account->getError(Constants::$passwordCharacters); ?>
             <label for="password">password</label>
-            <input id="password" type="text" name="password" value="<?php echo $_POST['password']?>" placeholder="your password" required>
+            <input id="password" name="password" type="text" value="<?php echo $_POST['password']?>" placeholder="your password" required>
         </p>
         <p>
-
             <label for="password2">Confirm Password</label>
-            <input id="Password2" type="text" name="password2" value="<?php echo $_POST['password2']?>" placeholder="confirm yoy password" required>
+            <input id="Password2" name="password2" type="text"  value="<?php echo $_POST['password2']?>" placeholder="confirm yoy password" required>
         </p>
             <button type="submit" name="registerButton">Login</button>
             <!-- <input type="submit" name="registerButton"> -->
