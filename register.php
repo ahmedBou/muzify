@@ -52,25 +52,25 @@ function getInputValue($name){
                 <div id="sign_up" class="active-form form">
                     <form action="register.php" method="POST" id="registerForm">
                         <div class="input-from">
-                            <?php echo $account->getError( Constants::$usernameCharacters) ?>
+                        <span class='errorMessage'><?php echo $account->getError( Constants::$usernameCharacters) ?></span>
                             <input type="text" value="<?php getInputValue('username') ?>" name="username" placeholder="Enter a username" required>
                         </div>
                         <div class="input-from">
-                            <?php echo $account->getError(Constants::$firstNameCharacters) ?>
+                        <span class='errorMessage'><?php echo $account->getError(Constants::$firstNameCharacters) ?></span>
                             <input type="text" value="<?php getInputValue('firstName') ?>" name="firstName" placeholder="Your fist name" required>
                         </div>
                         <div class="input-from">
-                            <?php echo $account->getError(Constants::$lastNameCharacters) ?>
+                        <span class='errorMessage'><?php echo $account->getError(Constants::$lastNameCharacters) ?></span>
                             <input type="text" value="<?php getInputValue('lastName') ?>" name="lastName" placeholder="Your last name" required>
                         </div>
                         <div class="input-from">
-                            <?php echo $account->getError(Constants::$emailInvalid) ?>
+                        <span class='errorMessage'><?php echo $account->getError(Constants::$emailInvalid) ?></span>
                             <input type="email" value="<?php getInputValue('email') ?>" name="email"  placeholder="Enter your email" required>
                         </div>
                         <div class="input-from">
-                            <?php echo $account->getError(Constants::$passwordsDoNoMatch); ?>
-                            <?php echo $account->getError(Constants::$passwordNotAlphanumeric); ?>
-                            <?php echo $account->getError(Constants::$passwordCharacters); ?>
+                        <span class='errorMessage'><?php echo $account->getError(Constants::$passwordsDoNoMatch); ?></span>
+                        <span class='errorMessage'><?php echo $account->getError(Constants::$passwordNotAlphanumeric); ?></span>
+                        <span class='errorMessage'><?php echo $account->getError(Constants::$passwordCharacters); ?></span>
                             <input type="password" name="password" placeholder="Enter a password" required>
                         </div>
                         <div class="input-from">

@@ -25,7 +25,6 @@ body{
     align-items: center;
 }
 
-
 .header{
     font-size: 25px;
     width: 48%;
@@ -48,7 +47,6 @@ body{
     flex-direction: column;
     width:100%;
     max-width: 437px;
-    position: relative;
 }
 
 .container .panel .labels{
@@ -102,10 +100,15 @@ body{
 
 .container .panel .forms .input-from{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     margin: 15px 0;
     align-items: center;
     width: 100%;
+}
+.errorMessage{
+    color: red;
+    font-size: 12px;
+    align-self: flex-start;
 }
 
 .container .panel .forms .input-from input{

@@ -16,20 +16,17 @@
 			$this->validateEmails($em);
 			$this->validatePasswords($pw, $pw2);
 
-			if(empty($this->errorArray) == true) {
+			if(empty($this->errorArray)) {
 				return $this->insertUserDetails($un, $fn, $ln, $em, $pw);
 			}
-			else {
-				return false;
-			}
-
+			return false;
 		}
 
 		public function getError($error) {
 			if(!in_array($error, $this->errorArray)) {
 				$error = "";
 			}
-			return "<span class='errorMessage'>$error</span>";
+			return $error;
 		}
 
 		private function insertUserDetails($un, $fn, $ln, $em, $pw) {
@@ -37,19 +34,16 @@
 			$profilePic = "assets/images/profile-pics/head_default.png";
 			$date = date("Y-m-d");
 
-			$result = mysqli_query($this->con, "INSERT INTO users VALUES ('','$un', '$fn', '$ln', '$em', '$encryptedPw', '$date', '$profilePic')");
+			return mysqli_query($this->con, "INSERT INTO users VALUES ('','$un', '$fn', '$ln', '$em', '$encryptedPw', '$date', '$profilePic')");
 
-			return $result;
 		}
 
 		private function validateUsername($un) {
-
 			if(strlen($un) > 25 || strlen($un) < 5) {
 				array_push($this->errorArray, Constants::$usernameCharacters);
 			}
 
 			//TODO: check if username exists
-
 		}
 
 		private function validateFirstName($fn) {
@@ -65,7 +59,6 @@
 		}
 
 		private function validateEmails($em) {
-
 			if(!filter_var($em, FILTER_VALIDATE_EMAIL)) {
 				array_push($this->errorArray, Constants::$emailInvalid);
 			}
@@ -73,7 +66,6 @@
 		}
 
 		private function validatePasswords($pw, $pw2) {
-			
 			if($pw != $pw2) {
 				array_push($this->errorArray, Constants::$passwordsDoNoMatch);
 			}
