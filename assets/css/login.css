@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+body{
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15px;
+    background: linear-gradient( rgba(1, 59, 19, 0.5), rgba(0, 0, 0, 0.74) ), url('../images/bg-log.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+.container{
+    height: 100%;
+    padding: 0 2%;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.header{
+    font-size: 25px;
+    width: 48%;
+}
+.header img{
+    width: 200px;
+}
+
+.header .header-text ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header .header-text ul li{
+    margin: 10px 0;
+}
+.container .panel{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    max-width: 437px;
+    position: relative;
+}
+
+.container .panel .labels{
+    display: flex;
+    align-items: flex-end;
+}
+
+.container .panel .labels button{
+    border: 1px solid white;
+    border-bottom: none;
+    outline: none;
+    background-color: rgba(255, 235, 226, 0);
+    cursor: pointer;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    color: white;
+    font-size: 1em;
+    margin-right: 3px;
+    padding: 13px 33px;
+    font-size: 15px;
+}
+
+.container .panel .labels .active-panel{
+    background-color: rgba(255, 235, 226, 0.4);
+    padding: 13px 33px;
+    font-size: 15px;
+}
+
+.container .panel form {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+.container .panel .forms{
+    background-color: rgba(255, 235, 226, 0.0);
+    border-radius: 15px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border: 1px solid white;
+    border-radius: 0 6px 6px 6px;
+    padding: 40px;
+}
+.container .panel .forms .form{
+    display: none;
+}
+
+.container .panel .forms .active-form{
+    display: block;
+}
+
+.container .panel .forms .input-from{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    align-items: center;
+    width: 100%;
+}
+
+.container .panel .forms .input-from input{
+    padding: 10px;
+    outline: none;
+    border: none;
+    width: 100%;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+}
+
+.container .panel .forms .input-from input::placeholder{
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+}
+
+.container .panel .forms .submit-btn{
+    outline: none;
+    color: white;
+    padding: 11px 0;
+    width: 45%;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid white;
+    display: block;
+    margin-top: 30px;
+}
+
+.container .panel .forms .submit-btn:hover{
+    background-color: rgba(255, 235, 226, 0.4);
+    border: 1px solid #fff;
+
+}
+
+@media screen and (max-width: 992px){
+    .container{
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 15px;
+    }
+    .container .panel{
+        margin-top: 0;
+    }
+    .header{
+        font-size: 20px;
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        letter-spacing: normal;
+    }
+    .header ul{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        align-items: center;
+    }
+    
+    .header img{
+        width: 150px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .container .panel .forms .input-from label{
+        display: none;
+    }
+    .container .panel .forms .input-from input{
+        width: 100%;
+    }
+}
