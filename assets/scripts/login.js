@@ -4,12 +4,11 @@
         tabs[i].addEventListener("click", function () {
             tabs[i].classList.add("active-panel");
             document.querySelectorAll(".panel .forms .form")[i].classList.add("active-form");
-            tab_break:
             for (let j = 0; j < tabs.length; j++){
-                if (i != j && tabs[j].classList.contains("active-panel")) {
+                if (i !== j && tabs[j].classList.contains("active-panel")) {
                     tabs[j].classList.remove("active-panel");
                     document.querySelectorAll(".panel .forms .form")[j].classList.remove("active-form");
-                    break tab_break;
+                    break;
                 }
             }
         })

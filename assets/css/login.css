@@ -63,7 +63,6 @@ body{
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     color: white;
-    font-size: 1em;
     margin-right: 3px;
     padding: 13px 33px;
     font-size: 15px;
@@ -83,9 +82,6 @@ body{
 }
 .container .panel .forms{
     background-color: rgba(255, 235, 226, 0.0);
-    border-radius: 15px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
     border: 1px solid white;
     border-radius: 0 6px 6px 6px;
     padding: 40px;
@@ -159,14 +155,12 @@ body{
     .header{
         font-size: 20px;
         width: 100%;
-        margin: 0 auto;
-        margin-bottom: 20px;
+        margin: 0 auto 20px;
         letter-spacing: normal;
     }
     .header ul{
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
         align-items: center;
     }
     

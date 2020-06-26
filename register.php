@@ -53,28 +53,40 @@ function getInputValue($name){
                     <form action="register.php" method="POST" id="registerForm">
                         <div class="input-from">
                         <span class='errorMessage'><?php echo $account->getError( Constants::$usernameCharacters) ?></span>
-                            <input type="text" value="<?php getInputValue('username') ?>" name="username" placeholder="Enter a username" required>
+                            <label>
+                                <input type="text" value="<?php getInputValue('username') ?>" name="username" placeholder="Enter a username" required>
+                            </label>
                         </div>
                         <div class="input-from">
                         <span class='errorMessage'><?php echo $account->getError(Constants::$firstNameCharacters) ?></span>
-                            <input type="text" value="<?php getInputValue('firstName') ?>" name="firstName" placeholder="Your fist name" required>
+                            <label>
+                                <input type="text" value="<?php getInputValue('firstName') ?>" name="firstName" placeholder="Your fist name" required>
+                            </label>
                         </div>
                         <div class="input-from">
                         <span class='errorMessage'><?php echo $account->getError(Constants::$lastNameCharacters) ?></span>
-                            <input type="text" value="<?php getInputValue('lastName') ?>" name="lastName" placeholder="Your last name" required>
+                            <label>
+                                <input type="text" value="<?php getInputValue('lastName') ?>" name="lastName" placeholder="Your last name" required>
+                            </label>
                         </div>
                         <div class="input-from">
                         <span class='errorMessage'><?php echo $account->getError(Constants::$emailInvalid) ?></span>
-                            <input type="email" value="<?php getInputValue('email') ?>" name="email"  placeholder="Enter your email" required>
+                            <label>
+                                <input type="email" value="<?php getInputValue('email') ?>" name="email"  placeholder="Enter your email" required>
+                            </label>
                         </div>
                         <div class="input-from">
                         <span class='errorMessage'><?php echo $account->getError(Constants::$passwordsDoNoMatch); ?></span>
                         <span class='errorMessage'><?php echo $account->getError(Constants::$passwordNotAlphanumeric); ?></span>
                         <span class='errorMessage'><?php echo $account->getError(Constants::$passwordCharacters); ?></span>
-                            <input type="password" name="password" placeholder="Enter a password" required>
+                            <label>
+                                <input type="password" name="password" placeholder="Enter a password" required>
+                            </label>
                         </div>
                         <div class="input-from">
-                            <input type="password" name="password2" placeholder="Re enter password" required>
+                            <label>
+                                <input type="password" name="password2" placeholder="Re enter password" required>
+                            </label>
                         </div>
                         <button type="submit" class="submit-btn" name="registerButton">Sign Up</button>
                     </form>
@@ -84,10 +96,14 @@ function getInputValue($name){
                 <div id="sign_in" class="form">
                     <form action="register.php" method="POST" id="loginForm">
                         <div class="input-from">
-                            <input type="text" name="loginUsername" placeholder="username or email" required>
+                            <label>
+                                <input type="text" name="loginUsername" placeholder="username or email" required>
+                            </label>
                         </div>
                         <div class="input-from">
-                            <input type="password" name="loginPassword" placeholder="Your password" required>
+                            <label>
+                                <input type="password" name="loginPassword" placeholder="Your password" required>
+                            </label>
                         </div>
                         <button class="submit-btn" type="submit" name="loginButton">Login</button>
                     </form>
