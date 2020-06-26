@@ -18,7 +18,8 @@
 
 			if(empty($this->errorArray)) {
 				return $this->insertUserDetails($un, $fn, $ln, $em, $pw);
-			}
+
+            }
 			return false;
 		}
 
@@ -33,9 +34,11 @@
 			$encryptedPw = md5($pw);
 			$profilePic = "assets/images/profile-pics/head_default.png";
 			$date = date("Y-m-d");
-
-			return mysqli_query($this->con, "INSERT INTO users VALUES ('','$un', '$fn', '$ln', '$em', '$encryptedPw', '$date', '$profilePic')");
-
+			return mysqli_query($this->con, "INSERT INTO musicloud.users 
+                (musicloud.users.username, musicloud.users.firstname,
+                 musicloud.users.lastname, musicloud.users.email,
+                 musicloud.users.password, musicloud.users.signUpDate, musicloud.users.profilePic) 
+                        VALUES ('$un', '$fn', '$ln', '$em', '$encryptedPw', '$date', '$profilePic')");
 		}
 
 		private function validateUsername($un) {
@@ -82,4 +85,3 @@
 
 
 	}
-?>

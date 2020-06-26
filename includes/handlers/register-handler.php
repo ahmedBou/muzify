@@ -18,7 +18,6 @@ function sanitizeFormString($inputText) {
 	return $inputText;
 }
 
-
 if(isset($_POST['registerButton'])) {
 	//Register button was pressed
     $username = sanitizeFormUsername($_POST['username']);
@@ -30,11 +29,8 @@ if(isset($_POST['registerButton'])) {
 
 	$wasSuccessful = $account->register($username, $firstName, $lastName, $email, $password, $password2);
 
-	if($wasSuccessful == true) {
+	if($wasSuccessful) {
 		header("Location: index.php");
 	}
 
 }
-
-
-?>

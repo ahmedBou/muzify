@@ -1,5 +1,5 @@
 (function () {
-    tabs = document.querySelectorAll(".panel .labels button");
+    let tabs = document.querySelectorAll(".panel .labels button");
     for (let i = 0; i < tabs.length; i++){
         tabs[i].addEventListener("click", function () {
             tabs[i].classList.add("active-panel");

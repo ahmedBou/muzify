@@ -169,11 +169,4 @@ body{
         display: block;
         margin: 0 auto;
     }
-
-    .container .panel .forms .input-from label{
-        display: none;
-    }
-    .container .panel .forms .input-from input{
-        width: 100%;
-    }
 }

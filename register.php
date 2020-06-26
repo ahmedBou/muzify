@@ -3,7 +3,7 @@ include("includes/config.php");
 include("includes/classes/Account.php");
 include("includes/classes/Constants.php");
 
-$account = new Account($con); 
+$account = new Account($con);
 
 include("includes/handlers/register-handler.php") ;
 include("includes/handlers/login-handler.php");
@@ -13,9 +13,7 @@ function getInputValue($name){
         echo $_POST[$name];
     }
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,7 +46,7 @@ function getInputValue($name){
                 <button>Sign In</button>
             </div>
             <div class="forms">
-               
+
                 <div id="sign_up" class="active-form form">
                     <form action="register.php" method="POST" id="registerForm">
                         <div class="input-from">
@@ -104,6 +102,7 @@ function getInputValue($name){
                             <label>
                                 <input type="password" name="loginPassword" placeholder="Your password" required>
                             </label>
+
                         </div>
                         <button class="submit-btn" type="submit" name="loginButton">Login</button>
                     </form>
