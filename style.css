@@ -14,13 +14,15 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: flex-end;
   margin: 0;
 }
+
 .music-container{
   background-color: #ffff;
   border-radius: 15px;
+  width: 80%;
   box-shadow: 0 20px 20px 0 rgba(252, 169, 169, 0.6);
   display: flex;
   padding: 20px 30px;

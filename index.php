@@ -12,9 +12,9 @@
     <title>Music Player</title>
   </head>
   <body>
-    <h1>Music Player</h1>
+    <!-- <h1>Music Player</h1> -->
 
-    <div class="music-container play" id="music-container">
+    <div class="music-container" id="music-container">
       <div class="music-info">
         <h4 id="title"></h4>
         <div class="progress-container" id="progress-container">
