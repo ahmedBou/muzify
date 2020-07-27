@@ -16,7 +16,7 @@
 
     <div class="music-container play" id="music-container">
       <div class="music-info">
-        <h4 id="title">ukelele</h4>
+        <h4 id="title"></h4>
         <div class="progress-container" id="progress-container">
           <div class="progress" id="progress"></div>
         </div>
