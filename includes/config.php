@@ -1,10 +1,13 @@
+
+
 <?php 
 // output buffering
 ob_start();
 
 $timezone = date_default_timezone_set("Africa/Casablanca");
 
-$con = mysqli_connect("localhost", "root", "","musicloud", "3306");
-if(mysqli_connect_errno()){
-    die("Failed to connect: " .mysqli_connect_error());
-}
+
+$pdo = new PDO('mysql:host=localhost; port=3306; dbname=musicloud', 'root','root');
+
+// see the error folder for more detail
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

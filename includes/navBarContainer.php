@@ -2,7 +2,7 @@
     <nav class="navbar">
         
         <a href="index.php" class="logo">
-            <img src="images/logo2.png" alt="" >
+            <img src="assets/images/logo2.png" alt="" >
             <h3>LegacyZik</h3>
         </a>
 

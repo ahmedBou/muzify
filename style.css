@@ -9,11 +9,11 @@ body {
   font-family: 'Lato', sans-serif;
   margin: 0;
   padding: 0;
-  /* background-image: linear-gradient(
-    0deg,
-      rgba(252, 221, 221, 1) 92%,
-      rgba(247, 247, 247, 1) 23.8%,
-       ); */
+  background-image: linear-gradient(
+    0deg,rgba(247, 247, 247, 1) 23.8%,
+      rgba(252, 221, 221, 1) 92%     
+       );
+  height: 100vh;
 }
  #playingBar{
   display: flex;
@@ -206,4 +206,24 @@ body {
 
 .navItemLink:hover{
   color: #fff;
+}
+
+#mainViewContainer{
+  margin-left: 220px;
+  padding-bottom: 100px;
+  width: calc(100% - 220px);
+}
+#mainContent{
+  padding: 0 20px;
+}
+
+.mainTitle{
+  padding: 20px;
+  text-align: center;
+}
+.gridViewContainer{
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+
 }
