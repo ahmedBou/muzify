@@ -8,6 +8,10 @@
   // }
 
   ?> -->
+      <?php include("includes/config.php");?>
+      <?php include("includes/classes/Artist.php");?>
+      <?php include("includes/classes/Album.php");?>
+
 
 
   <!DOCTYPE html>
@@ -26,7 +30,6 @@
     <body>
     <div id="mainContainer">
       <div id="topContainer">
-  
         <?php include("./includes/navBarContainer.php");?>
   
         <div id="mainViewContainer">

@@ -1,8 +1,7 @@
 
-<?php  include("./includes/config.php");?>
 <?php include('includes/header.php') ?>
 
-<div class="mainTitle"><h1>Music that will rise your head</h1></div>
+<div class="mainTitle"><h1>Deep dive into beautiful music</h1></div>
 
 <div class="gridViewContainer">
     <?php
@@ -17,10 +16,12 @@
             
             $album = <<<DELIMETER
             <div class="gridViewItem">
-                <img src="{$row["images_path"]}" style="width:300px; height:260px">
-                <div class="gridViewInfo">
-                    {$row["title"]}
-                </div>
+                <a href='album.php?id={$row["album_id"]}'>
+                    <img src="{$row["images_path"]}" style="width:300px; height:260px">
+                    <div class="gridViewInfo">
+                        {$row["title"]}
+                    </div>
+                </a>
             </div>
             DELIMETER;
             echo $album;

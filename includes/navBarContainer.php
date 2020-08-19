@@ -3,7 +3,7 @@
         
         <a href="index.php" class="logo">
             <img src="assets/images/logo2.png" alt="" >
-            <h3>LegacyZik</h3>
+            <h3><span class="text-primary">LEGACY</span>ZIK</h3>
         </a>
 
         <div class="groupOfItems">
@@ -31,4 +31,4 @@
             </div>
         </div>
     </nav>
-      </div>
+</div>

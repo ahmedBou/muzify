@@ -34,6 +34,7 @@ function playSong(){
     playBtn.querySelector("i.fas").classList.add('fa-pause');
     audio.play();
 }
+
 // Pause song
 function pauseSong(){
     musicContainer.classList.remove('play');
@@ -41,6 +42,7 @@ function pauseSong(){
     playBtn.querySelector("i.fas").classList.remove('fa-pause');
     audio.pause();
 }
+
 // Previous song
 function prevSong(){
     songIndex--;
@@ -50,6 +52,7 @@ function prevSong(){
     loadSong(songs[songIndex]);
     playSong();
 }
+
 function nextSong(){
     songIndex++;
     if(songIndex > songs.length-1){
@@ -77,7 +80,6 @@ function setProgress(e){
     const duration = audio.duration;
     console.log(duration);
     audio.currentTime = (clickX / width) * duration;
-
 }
 
 // Event listeners
