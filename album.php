@@ -23,6 +23,9 @@ $album = new Album($pdo, $albumId);
 // echo $artist->getName();
 $artist = $album->getArtist();
 // echo $artist->getName() ;
+
+$track = new Track($pdo, $albumId);
+// echo $track->getTitle();
 ?>
 
 <div class="entityInfo">
@@ -31,10 +34,52 @@ $artist = $album->getArtist();
     </div>
     <div class="rightSection">
         <h2><?php echo $album->getTitle(); ?></h2>
-        <span><?php echo $artist->getName(); ?></span>
+        <p><?php echo $artist->getName(); ?></p>
+        <p><?php echo $album->getNumberOfTrack()?> songs</p>
     </div>
 
 </div>
+
+<div class="trackListContainer">
+    <ul class="trackList">
+   
+        <?php 
+            $trackIdArray = $album->getSongId();
+            // echo $trackIdArray;
+            $i= 1;
+            foreach($trackIdArray as $trackId){
+                // echo $trackId ."<br>";
+                $albumTrack = new Track($pdo, $trackId);
+                // echo $albumTrack->getTitle();
+                // $albumArtist = $albumTrack->getArtist();
+                // echo $albumArtist;
+          
+                echo  "<li class='tracklistRow'>
+                            <div class='trackCount'>
+                                <div class='playIcon'><i class='fa fa-play-circle'></i></div>
+                                <span class='trackNumber'>$i</span>
+                            </div>
+
+                            <div class='trackInfo'>
+                                <span class='trackName'>". $albumTrack->getTitle() ."</span>
+                                
+                            </div>
+                            <div class='trackOptions'>    
+                                <span class='iconOption'><i class='fa fa-ellipsis-h'></i></span>
+                                <div class='trackDuration'>
+                                <span class='duration'>". $albumTrack->getDuration() ."</span>
+                                   
+
+                                </div>
+                            </div>
+
+                        </li>";
+                $i++;
+            }
+        ?>
+    </ul>
+</div>
+
 
 
 

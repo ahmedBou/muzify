@@ -17,7 +17,6 @@ to use an artist  -->
 			$this->id = $id;
         }
 
-
         public function getName(){
             $artistQuery = $this->pdo->query("SELECT * FROM artist WHERE artist_id= '$this->id' ");
             $artist = $artistQuery->fetch(PDO::FETCH_ASSOC);
