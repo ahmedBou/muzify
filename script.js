@@ -1,17 +1,51 @@
 var currentPlaylist = [];
 var audioElement;
 
+function formatTime(seconds){
+    var time = Math.round(seconds);
+    var minutes = Math.floor(time / 60); 
+    var seconds = time -(minutes * 60);
+    return minutes + ":" + seconds;
+}
+
+function updateTimeProgressBar(audio){
+    $(".progressTime.current").text(formatTime(audio.currentTime));
+    $(".progressTime.remaining").text(formatTime(audio.duration - audio.currentTime));
+    var progress = audio.currentTime / audio.duration * 100;
+    $(".progressBar .progress").css("width", `${progress}%`);
+}
+
 function Audio(){
+    // keep track of the that currently playing
     this.currentlyPlaying;
     this.audio = document.createElement('audio');
-    this.setTrack = function(src){
-        this.audio.src = src;
+    
+    // remaininTime events
+    this.audio.addEventListener("canplay", function(){
+        // "this" refers to the object that the event was called on this.audio.duration
+        let duration = formatTime(this.duration);
+       $(".progressTime.remaining").text(duration);
+    });
+    // progressBar events
+    this.audio.addEventListener("timeupdate", function(){
+        if(this.duration){
+            updateTimeProgressBar(this);
+        }
+    })
+    this.setTrack = function(track){
+        // "this" refers to the instance of class
+        this.currentlyPlaying  = track;
+        this.audio.src = track.path;
     }
     // this play() function save us to say audioElement.audio.play or pause
     this.play = function(){
+        var musicContainer = document.getElementById("navigation");
+        musicContainer.classList.add('play');
         this.audio.play();
     }
     this.pause = function(){
+        var musicContainer = document.getElementById("navigation");
+        musicContainer.classList.remove('play');
         this.audio.pause();
     }
 } 
@@ -90,7 +124,7 @@ function Audio(){
 //     progress.style.width = `${progressPercent}%`;
 // }
 
-// // Set progress bar
+// Set progress bar
 // function setProgress(e){
 //     const width = this.clientWidth;
 //     // console.log(width);

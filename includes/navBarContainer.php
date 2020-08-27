@@ -25,6 +25,9 @@
             </div>
         </div>
 
+
+        <?php echo "userLoggedIn" ?>
+
         <div class="groupOfItems">
             <div class="navItem">
             <a href="profile.php" class="navItemLink">Citizen0x</a>

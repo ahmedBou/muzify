@@ -1,14 +1,16 @@
-<!-- <?php 
-// session_destroy(); LOGOUT
-  // include("includes/config.php");
-  // if(isset($_SESSION['userLoggedIn'])){
-  //   $userLoggedIn = $_SESSION['userLoggedIn'];
-  // }else{
-  //   header("Location: register.php")
-  // }
+<?php include("includes/config.php");?>
+<?php 
 
-  ?> -->
-      <?php include("includes/config.php");?>
+  if(isset($_SESSION['userLoggedIn'])) {
+    $userLoggedIn = $_SESSION['userLoggedIn'];
+    echo $userLoggedIn;
+  }
+  else {
+    header("Location: register.php");
+  }
+
+  ?>
+      
       <?php include("includes/classes/Artist.php");?>
       <?php include("includes/classes/Album.php");?>
       <?php include("includes/classes/Track.php");?>

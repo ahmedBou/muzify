@@ -3,7 +3,7 @@ include("includes/config.php");
 include("includes/classes/Account.php");
 include("includes/classes/Constants.php");
 
-$account = new Account($con);
+$account = new Account($pdo);
 
 include("includes/handlers/register-handler.php");
 include("includes/handlers/login-handler.php");
@@ -26,7 +26,6 @@ function getInputValue($name){
 
 <body>
 
-
     <div class="container">
         <div class="header">
             <img src="assets/images/g481.png" alt="Muzify Logo">
@@ -45,69 +44,83 @@ function getInputValue($name){
                 <button class="active-panel">Sign Up</button>
                 <button>Sign In</button>
             </div>
+            <!-- ***************************************Register********************************************************* -->
             <div class="forms">
-
                 <div id="sign_up" class="active-form form">
+
                     <form action="register.php" method="POST" id="registerForm">
+
                         <div class="input-from">
-                        <span class='errorMessage'><?php echo $account->getError( Constants::$usernameCharacters) ?></span>
                             <label>
                                 <input type="text" value="<?php getInputValue('username') ?>" name="username" placeholder="Enter a username" required>
                             </label>
+                            <span class='errorMessage'><?php echo $account->getError( Constants::$usernameCharacters) ?></span>
                         </div>
+
                         <div class="input-from">
-                        <span class='errorMessage'><?php echo $account->getError(Constants::$firstNameCharacters) ?></span>
                             <label>
-                                <input type="text" value="<?php getInputValue('firstName') ?>" name="firstName" placeholder="Your fist name" required>
+                                <input type="text" value="<?php getInputValue('firstName') ?>" name="firstName" placeholder="Your first name" required>
                             </label>
+                            <span class='errorMessage'><?php echo $account->getError(Constants::$firstNameCharacters) ?></span>          
                         </div>
+
                         <div class="input-from">
-                        <span class='errorMessage'><?php echo $account->getError(Constants::$lastNameCharacters) ?></span>
                             <label>
                                 <input type="text" value="<?php getInputValue('lastName') ?>" name="lastName" placeholder="Your last name" required>
                             </label>
+                            <span class='errorMessage'><?php echo $account->getError(Constants::$lastNameCharacters) ?></span>
                         </div>
+
                         <div class="input-from">
-                        <span class='errorMessage'><?php echo $account->getError(Constants::$emailInvalid) ?></span>
                             <label>
                                 <input type="email" value="<?php getInputValue('email') ?>" name="email"  placeholder="Enter your email" required>
                             </label>
+                            <span class='errorMessage'><?php echo $account->getError(Constants::$emailInvalid) ?></span>
+                            <span class='errorMessage'><?php echo $account->getError(Constants::$emailTaken)?></span>
+
                         </div>
+
                         <div class="input-from">
-                        <span class='errorMessage'><?php echo $account->getError(Constants::$passwordsDoNoMatch); ?></span>
-                        <span class='errorMessage'><?php echo $account->getError(Constants::$passwordNotAlphanumeric); ?></span>
-                        <span class='errorMessage'><?php echo $account->getError(Constants::$passwordCharacters); ?></span>
                             <label>
                                 <input type="password" name="password" placeholder="Enter a password" required>
                             </label>
+                            <span class='errorMessage'><?php echo $account->getError(Constants::$passwordsDoNoMatch); ?></span>
+                            <span class='errorMessage'><?php echo $account->getError(Constants::$passwordNotAlphanumeric); ?></span>
+                            <span class='errorMessage'><?php echo $account->getError(Constants::$passwordCharacters); ?></span>
                         </div>
+
                         <div class="input-from">
                             <label>
                                 <input type="password" name="password2" placeholder="Re enter password" required>
                             </label>
                         </div>
+
                         <button type="submit" class="submit-btn" name="registerButton">Sign Up</button>
                     </form>
                 </div>
-                <!--div #sign_up-->
+                <!--*******************************ENd of Regiter****************************************************-->
 
+                <!-- **************************************LOgin***************************************************** -->
                 <div id="sign_in" class="form">
+
+                    
                     <form action="register.php" method="POST" id="loginForm">
                         <div class="input-from">
                             <label>
                                 <input type="text" name="loginUsername" placeholder="username or email" required>
                             </label>
+                            <span class='errorMessage'><?php echo $account->getError(Constants::$loginFailed); ?></span>
+
                         </div>
                         <div class="input-from">
                             <label>
-                                <input type="password" name="loginPassword" placeholder="Your password" required>
+                                <input type="text" name="loginPassword" placeholder="Your password" required>
                             </label>
 
                         </div>
                         <button class="submit-btn" type="submit" name="loginButton">Login</button>
                     </form>
                 </div>
-                <!--div #sign_in-->
 
             </div>
         </div>

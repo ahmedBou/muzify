@@ -1,12 +1,33 @@
 <?php
+
 	class Account {
 
-		private $con;
+		private $pdo;
 		private $errorArray;
 
-		public function __construct($con) {
-			$this->con = $con;
+		public function __construct($pdo) {
+			$this->pdo = $pdo;
 			$this->errorArray = array();
+		}
+
+		public function login($un, $pw){
+			// $pw = md5($pw);
+			echo $un;
+			echo $pw;
+
+			$query = $this->pdo->query("SELECT * FROM users WHERE username ='$un' and password ='$pw' ");
+			$result = $query->rowCount();
+
+			echo $result;
+
+			// if one result found matching the username and password
+			if($query->rowCount() == 1){
+				return true;
+			}
+			else{
+				array_push($this->errorArray, Constants::$loginFailed);
+				return false;
+			}
 		}
 
 		public function register($un, $fn, $ln, $em, $pw, $pw2) {
@@ -18,7 +39,6 @@
 
 			if(empty($this->errorArray)) {
 				return $this->insertUserDetails($un, $fn, $ln, $em, $pw);
-
             }
 			return false;
 		}
@@ -31,14 +51,12 @@
 		}
 
 		private function insertUserDetails($un, $fn, $ln, $em, $pw) {
-			$encryptedPw = md5($pw);
+			// $encryptedPw = md5($pw);
 			$profilePic = "assets/images/profile-pics/head_default.png";
 			$date = date("Y-m-d");
-			return mysqli_query($this->con, "INSERT INTO musicloud.users 
-                (musicloud.users.username, musicloud.users.firstname,
-                 musicloud.users.lastname, musicloud.users.email,
-                 musicloud.users.password, musicloud.users.signUpDate, musicloud.users.profilePic) 
-                        VALUES ('$un', '$fn', '$ln', '$em', '$encryptedPw', '$date', '$profilePic')");
+			return $this->pdo->query("INSERT INTO users (username, firstname,lastname, email,
+                 		password, signUpDate, profilePic) 
+                        VALUES ('$un', '$fn', '$ln', '$em', '$pw', '$date', '$profilePic')");
 		}
 
 		private function validateUsername($un) {
@@ -47,6 +65,11 @@
 			}
 
 			//TODO: check if username exists
+			$checkUsernameQuery = $this->pdo->query("SELECT username FROM users WHERE username='$un'");
+			if($checkUsernameQuery->rowCount() !=0 ){
+				array_push($this->errorArray, Constants::$usernameTaken);
+				return;
+			}
 		}
 
 		private function validateFirstName($fn) {
@@ -65,7 +88,11 @@
 			if(!filter_var($em, FILTER_VALIDATE_EMAIL)) {
 				array_push($this->errorArray, Constants::$emailInvalid);
 			}
-			//TODO: Check that username hasn't already been used
+			$checkEmailQuery = $this->pdo->query("SELECT email FROM users WHERE email='$em'");
+			if(mysqli_num_rows($checkEmailQuery) !=0){
+				array_push($this->errorArray, Constants::$emailTaken);
+				return;
+			}
 		}
 
 		private function validatePasswords($pw, $pw2) {
@@ -82,6 +109,6 @@
 			}
 
 		}
-
-
 	}
+?>
+
