@@ -4,9 +4,7 @@
 <div class="mainTitle"><h1>Deep dive into beautiful music</h1></div>
 
 <div class="gridViewContainer">
-    <?php
-  
-
+     <?php
         $stmt = $pdo->query("SELECT * FROM album ORDER BY RAND() LIMIT 10");
 
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -30,9 +28,4 @@
        
     ?>
 </div>
-
-
-
-
-<?php include('includes/footer.php') ?>
-
+<?php include("includes/footer.php"); ?>

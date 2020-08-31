@@ -1,21 +1,19 @@
 <?php include("includes/config.php");?>
+<?php include("includes/classes/Artist.php");?>
+<?php include("includes/classes/Album.php");?>
+<?php include("includes/classes/Track.php");?>
 <?php 
-
+// session_destroy(); LOGOUT
   if(isset($_SESSION['userLoggedIn'])) {
     $userLoggedIn = $_SESSION['userLoggedIn'];
     echo $userLoggedIn;
+    echo "<script>userLoggedIn = '$userLoggedIn';</script>";
   }
   else {
     header("Location: register.php");
   }
 
   ?>
-      
-      <?php include("includes/classes/Artist.php");?>
-      <?php include("includes/classes/Album.php");?>
-      <?php include("includes/classes/Track.php");?>
-
-
 
   <!DOCTYPE html>
   <html lang="en">
@@ -30,12 +28,15 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
       <link rel="stylesheet" href="style.css">
-      <title>Music Player</title>
+      <title>Music Legacy</title>
     </head>
+    
     <body>
     <div id="mainContainer">
       <div id="topContainer">
+
         <?php include("./includes/navBarContainer.php");?>
   
         <div id="mainViewContainer">
+          
           <div id="mainContent">
