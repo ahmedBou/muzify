@@ -33,9 +33,17 @@ class Track{
     public function getAlbumId(){
         return new Album($this->pdo, $this->albumId);
     }     
+
+    public function getArtist() {
+        return new Artist($this->pdo, $this->artistId);
+    }
+    public function getId() {
+        return $this->id;
+    }
     public function getGenre(){
         return $this->genre;
-    }   
+    }  
+
     public function getDuration(){
         return $this->duration;
     }   

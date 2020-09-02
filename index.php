@@ -1,4 +1,3 @@
-
 <?php include('includes/header.php') ?>
 
 <div class="mainTitle"><h1>Deep dive into beautiful music</h1></div>
@@ -8,10 +7,7 @@
         $stmt = $pdo->query("SELECT * FROM album ORDER BY RAND() LIMIT 10");
 
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-            // print_r($row["images_path"]);
-            // echo "<img src=";
-            // ;
-            
+            // 
             $album = <<<DELIMETER
             <div class="gridViewItem">
                 <a href='album.php?id={$row["album_id"]}'>

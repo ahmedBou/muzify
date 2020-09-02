@@ -53,7 +53,6 @@ $track = new Track($pdo, $albumId);
                 // echo $albumTrack->getTitle();
                 // $albumArtist = $albumTrack->getArtist();
                 // echo $albumArtist;
-          
                 echo  "<li class='tracklistRow'>
                             <div class='trackCount'>
                                 <div class='playIcon'><i class='fa fa-play-circle'></i></div>

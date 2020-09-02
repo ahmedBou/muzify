@@ -156,6 +156,7 @@ function shuffleArray(a) {
         var artist = JSON.parse(data);
         console.log(artist.name);
         $("#artistName").text(artist.name);
+        $("#artistName").attr("onclick", "openPage('artist.php?id="+ artist.artist_id +"')");
       })
       $.post("includes/handlers/ajax/albumImagePath.php", {albumId: track.album_id}, function(data){
         $albumImage = JSON.parse(data);
@@ -206,12 +207,12 @@ function shuffleArray(a) {
 <div class="music-container" >
     <div class="leftContainer">
       <div class="image-info">
-        <div class="img-container">
-          <img src="" alt="music-cover" id="cover" />
+        <div class="img-container" >
+          <img role="link" tabindex="0" src="" alt="music-cover" id="cover" />
         </div>
         <div class="song-info">
-          <div id="artistName"></div>
-          <div id="title"></div>
+          <div id="artistName" role="link" tabindex="0"></div>
+          <div id="title" role="link" tabindex="0"></div>
         </div>
       </div>
     </div>

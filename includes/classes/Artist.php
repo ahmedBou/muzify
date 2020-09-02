@@ -3,10 +3,7 @@
 to use an artist  -->
 
 <?php
-//   $pdo = new PDO('mysql:host=localhost; port=3306; dbname=musicloud', 'root','root');
 
-  // see the error folder for more detail
-//   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	class Artist{
 
         private $pdo;
@@ -17,10 +14,27 @@ to use an artist  -->
 			$this->id = $id;
         }
 
+		
         public function getName(){
             $artistQuery = $this->pdo->query("SELECT * FROM artist WHERE artist_id= '$this->id' ");
             $artist = $artistQuery->fetch(PDO::FETCH_ASSOC);
             return $artist['name'];
         }
+        public function getId() {
+			return $this->id;
+		}
+
+        public function getSongId(){
+            $songQuery = $this->pdo->query("SELECT track_id from track WHERE artist_id = '$this->id' ORDER BY COUNT DESC");        
+            $array = array();
+
+            while($row = $songQuery->fetch(PDO::FETCH_ASSOC)){
+                echo $row['track_id'];
+                array_push($array, $row['track_id']);
+            }
+            return $array;
+
+        }
+
     }
 ?>

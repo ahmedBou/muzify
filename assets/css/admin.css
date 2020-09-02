@@ -1,0 +1,89 @@
+*{
+    box-sizing: border-box;
+}
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #333333;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+.main-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+}
+.side{
+    background-color: #111111;
+    flex: .20;
+    overflow-y: auto;
+    height: 100%;
+}
+.side-header .logo{
+    padding: 5px;
+    text-align: center;
+    font-size: 1.2em;
+}
+.content{
+    overflow-y: auto;
+    flex: .80;
+    height: 100%;
+
+}
+.side-menu{
+    padding: 15px;
+} 
+.side-menu ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    padding-left: 10px;
+}
+.side-menu ul li{
+    padding: 10px 0;
+}
+
+.content{
+    padding: 20px;
+}
+
+.content table{
+    width: 100%;
+}
+
+.content table{
+    text-align: center;
+}
+
+.content table thead{
+    background-color: white;
+    color: black;
+}
+
+.content table, tr{
+    border-collapse: collapse;
+    border: 1px solid white;
+    padding: 5px;
+}
+.content table td.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content table td.img img{
+    width: 50px;
+    height: 50px;
+}
+.delete-btn{
+    border: none;
+    outline: none;
+    background-color: tomato;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+}
+.delete-btn:hover{
+    background-color: orange;
+}

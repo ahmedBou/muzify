@@ -10,6 +10,26 @@
 			$this->errorArray = array();
 		}
 
+		// public function login($un, $pw){
+		// 	// $pw = md5($pw);
+		// 	echo $un;
+		// 	echo $pw;
+
+		// 	$query = $this->pdo->query("SELECT * FROM users WHERE username ='$un' and password ='$pw' ");
+		// 	$result = $query->rowCount();
+
+		// 	echo $result;
+
+		// 	// if one result found matching the username and password
+		// 	if($query->rowCount() == 1){
+		// 		return true;
+		// 	}
+		// 	else{
+		// 		array_push($this->errorArray, Constants::$loginFailed);
+		// 		return false;
+		// 	}
+		// }
+
 		public function login($un, $pw){
 			// $pw = md5($pw);
 			echo $un;
@@ -22,7 +42,7 @@
 
 			// if one result found matching the username and password
 			if($query->rowCount() == 1){
-				return true;
+			return [true, (bool)$query->fetch(PDO::FETCH_ASSOC)["isAdmin"]];
 			}
 			else{
 				array_push($this->errorArray, Constants::$loginFailed);

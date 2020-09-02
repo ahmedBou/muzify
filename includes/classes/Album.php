@@ -35,7 +35,7 @@ to use an artist  -->
             return $this->title;
         }
         public function getArtist(){
-            // instead of returning the artistId we can use the artistId to return artist object 
+            // instead of returning the artistId we can use the artistId to return artist object,the artist itself
             return new Artist($this->pdo, $this->artistId);
         }
 
